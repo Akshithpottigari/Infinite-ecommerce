@@ -25,5 +25,9 @@ export const dataStandards = {
     productDescription: {
         min: 10,
         max: 255
+    },
+    productPrice: {
+        min: 1,
+        max: 999999999
     }
 }

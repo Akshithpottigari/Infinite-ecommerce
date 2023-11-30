@@ -7,9 +7,10 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { JwtInterceptor } from './interceptors/jwt.interceptors';
 import { AuthGuard } from './guards/auth.guard';
 import { CategoryModule } from './category/category.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
-  imports: [AdminModule, CategoryModule],
+  imports: [AdminModule, CategoryModule, ProductModule],
   controllers: [AppController],
   providers: [AppService, PrismaService,
     {
