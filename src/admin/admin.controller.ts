@@ -8,13 +8,6 @@ import { UpdateAdminDTO } from './dtos/updateAdmin.dto';
 import { AdminLoginDTO } from './dtos/adminLogin.dto';
 import { ResetPasswordDTO } from './dtos/resetPassword.dto';
 
-
-
-// Creae
-// Update
-// login with access token and refresh token
-// reset passwrod
-//
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) { }
