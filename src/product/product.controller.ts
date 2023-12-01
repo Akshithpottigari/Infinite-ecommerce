@@ -5,12 +5,6 @@ import { User } from '../decorators/user.decorator';
 import { Admin } from '../types';
 import { UpdateProductDTO } from './dtos/updateProduct.dto';
 
-//✅ Create
-// ✅update
-// ✅Ddelete
-// filter
-
-
 @Controller('product')
 export class ProductController {
   constructor(private readonly productService: ProductService) { }
@@ -42,11 +36,12 @@ export class ProductController {
     @Query('page') page?: number,
     @Query('pageSize') pageSize?: number,
   ) {
-    console.log("controller", page, pageSize, name, categoryId, minPrice, maxPrice, fromDate, toDate)
-
     return await this.productService.filteredResults(user, page, pageSize, name, categoryId, minPrice, maxPrice, fromDate, toDate,);
   }
 
-
+  @Get("get/:productId")
+  async getProductInfo(@Param("productId") productId: string, @User() user: Admin) {
+    return await this.productService.getProductInfo(productId, user);
+  }
 
 }

@@ -142,4 +142,21 @@ export class ProductService {
             return { error: error.message };
         }
     }
+
+    async getProductInfo(productId: string, user: Admin) {
+        try {
+            let product = await this.prismaService.product.findUnique(
+                {
+                    where: {
+                        adminId: user.id,
+                        id: productId
+                    }
+                }
+            );
+            if (!product) return { error: "No such product" };
+            return { data: product };
+        } catch (error) {
+            return { error: error.message };
+        }
+    }
 }
